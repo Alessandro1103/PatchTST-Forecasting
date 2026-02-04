@@ -1,0 +1,30 @@
+data:
+  root_path: "./dataset/ETT-small/"
+  data_path: "ETTh1.csv"
+  n_channels: 7
+
+model:
+  seq_len: 336
+  pred_len: 96
+  patch_len: 16
+  stride: 8
+  d_model: 128
+  dropout: 0.2
+
+training:
+  batch_size: 32
+  patience: 10
+  learning_rate: 0.0001
+  device: "cuda"
+
+phases:
+  pretrain:
+    mask_ratio: 0.4
+    epochs: 50
+    pretrained_model_path: null
+    model_id_suffix: "_Pretrain"
+
+  forecast:
+    mask_ratio: 0.0
+    epochs: 20
+    model_id_suffix: "_FineTuned"

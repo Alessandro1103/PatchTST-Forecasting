@@ -1,0 +1,8 @@
+venv/
+checkpoints/*
+dataset/*
+__pycache__/
+plot.py
+test.py
+*.png
+*.pyc
